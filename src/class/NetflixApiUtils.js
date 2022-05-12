@@ -189,7 +189,7 @@ const netflixApiUtils = {
       Request.send({
         method: `POST`,
         params: `authURL=${this.authUrl}&${activities.map(activity => `path=["videos",${activity.movieID},["releaseYear","summary"]]`).join(`&`)}`,
-        url: `${NETFLIX_API_HOST}/${this.buildIdentifier}/pathEvaluator?languages=en-US`,
+        url: `${NETFLIX_API_HOST}/${this.buildIdentifier}/pathEvaluator?languages=es-AR`,
         success: response => {
           const json = JSON.parse(response);
           if (activities && json.value.videos) {
@@ -218,7 +218,7 @@ const netflixApiUtils = {
       await this.activateAPI();
       Request.send({
         method: `GET`,
-        url: `${NETFLIX_API_HOST}/${this.buildIdentifier}/metadata?languages=en-US&movieid=${id}`,
+        url: `${NETFLIX_API_HOST}/${this.buildIdentifier}/metadata?languages=es-AR&movieid=${id}`,
         success: response => {
           resolve(this.parseMetadata(response));
         },
